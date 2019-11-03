@@ -6,6 +6,7 @@ const { User } = require('./Server/Models/User');
 var io = require('socket.io')(environment.socket.port);
 
 app.use(express.json());
+app.use(restrictAccess);
 app.use(express.static('Frontend', { extensions: ['html'] }));
 
 app.systemData = new System();
