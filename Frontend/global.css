@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Permanent+Marker&display=swap');
+/*
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Permanent Marker', cursive;
+*/
+
+* {
+  font-family: 'Oswald';
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  background-image: url(Images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}

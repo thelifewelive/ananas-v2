@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Annanas</title>
+    <link rel="stylesheet" type="text/css" href="global.css"></link>
+    <link rel="stylesheet" type="text/css" href="Styles/login.css"></link>
+    <link rel="stylesheet" type="text/css" href="Styles/lobby.css"></link>
+    <link rel="stylesheet" type="text/css" href="Styles/chat.css"></link>
+    <script src="animation.js"></script>
+    <script src="Scripts/router.js"></script>
+    <script src="Scripts/jquery-3.4.1.js"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="Scripts/socket.js"></script>
+  </head>
+  <body>
+
+    <div id="main-banner">
+      <img id="logo" src="Icons/ananas.png">
+      <h1>Ananas<br><span>Get in touch with strangers</span></h1>
+      <button onclick="login()">Get started!</button>
+    </div>
+
+    <div id="lobby">
+      <h1>Lobby<br><span>Click the search icon to start</span></h1>
+      <input id="name" placeholder="Nickname" type="text">
+      <img onclick="start()" src="Icons/search.png">
+    </div>
+
+    <div id="chat">
+      <div id="message-container">
+        <div id="looking-for">
+          <p>Looking for a partner</p>
+        </div>
+        <div id="connected-to">
+          <p><img src="./Icons/user.png"><span id="oponent">Username</span></p>
+        </div>
+        <!-- <div class="message user">
+          Hello
+        </div>
+        <div class="message oponent">
+            Hello from the oponent
+        </div> -->
+      </div>
+      <input id="message" placeholder="Message">
+      <button>SEND</button>
+      <button onclick="ready()" id="ready">I'm ready start the conservation now!</button>
+      <button id="next-con">Next Conservation</button>
+    </div>
+
+    <footer>
+      <p>The Life We Live - 2019</p>
+    </footer>
+  </body>
+</html>
