@@ -4,7 +4,6 @@ class Conservation {
     this.host = host;
     this.client = client;
     this.id = id;
-    this.messages = new Array();
   }
 
 }

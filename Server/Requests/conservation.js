@@ -9,8 +9,7 @@ function setReady(req, res) {
 
 function search(req, res) {
   const id = req.body.id;
-  const conservations = req.app.systemData.conservations;
-
+  
   for (let i = 0; i < req.app.systemData.conservations.length; i++) {
     // Checking that everybody is ready
     if (req.app.systemData.conservations[i].host.id === id || req.app.systemData.conservations[i].client.id === id) {
@@ -18,6 +17,7 @@ function search(req, res) {
         res.status(202);
         res.send(JSON.stringify(req.app.systemData.conservations[i]));
         res.end();
+        return
       }
     }
 

@@ -11,17 +11,24 @@ app.use(express.static('Frontend'));
 app.systemData = new System();
 
 io.on('connection', socket => {
-  // When start the application
   console.log(`${socket.id} connected!`);
 
-  // When user set the name and start
   socket.on('start', name => {
     app.systemData.users[socket.id] = new User(name, socket.id);
   });
 
-  // When the user disconnected
-  socket.on('disconnect', () => {
-    console.log(`${socket.id} disconnected!`);
+  socket.on('create-conservation', conservation => {
+    socket.join(conservation.id, () => {
+      console.log(socket.id + ' connected to room ' + conservation.id);
+    });
+  });
+
+  socket.on('send-message', data => {
+    socket.to(data.conservation.id).emit('receive-message', data.message);
+  });
+
+  socket.on('disconnect', (reason) => {
+    console.log(`${socket.id} disconnected! Reason: ${reason}`);
     delete app.systemData.users[socket.id];
     app.systemData.available = app.systemData.available.filter((id) => id != socket.id);
     app.systemData.removeConservation(socket.id);
