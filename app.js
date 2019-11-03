@@ -43,7 +43,8 @@ const {
 app.post('/app/ready', setReady);
 app.post('/app/search', search);
 
-app.listen(process.env.PORT || environment.server.port, () => {
+const port = process.env.PORT || environment.server.port;
+app.listen(port, () => {
   console.log('Ananas has been started!');
   console.log('The application is listening on ' + port);
 });
